@@ -166,3 +166,4 @@ export default function AeroFixFAQ() {
     </div>
   );
 }
+git status git rm -- "AeroFix Página 1.txt" git commit -m "Remove AeroFix Página 1.txt" git push origin main
