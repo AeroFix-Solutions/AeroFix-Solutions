@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroFix Solutions - Manutenção de Drones</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fontes Google (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- --- NAVIGATION --- -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <!-- LOGO SECTION -->
+                    <!-- Substitua o 'src' abaixo pelo caminho da sua imagem, ex: src="Logo da AeroFix Solutions (1).jpg" -->
+                    <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                        <img 
+                            src="https://i.imgur.com/9gukM7m.png" 
+                            alt="AeroFix Solutions Logo" 
+                            class="h-16 w-auto object-contain"
+                        >
+                        <span class="font-bold text-xl tracking-tight text-slate-900">AeroFix Solutions</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#processo" class="text-slate-600 hover:text-blue-600 font-medium transition">Envio</a>
+                    <a href="#garantia" class="text-slate-600 hover:text-blue-600 font-medium transition">Garantia</a>
+                    <a href="#glossario" class="text-slate-600 hover:text-blue-600 font-medium transition">Termos</a>
+                    <a href="#faq" class="text-slate-600 hover:text-blue-600 font-medium transition">Dúvidas</a>
+                    <button class="bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+                        Orçamento
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 p-2">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#processo" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600">Como Enviar</a>
+                <a href="#garantia" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600">Garantia</a>
+                <a href="#glossario" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600">Termos Técnicos</a>
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- --- HERO SECTION --- -->
+    <header class="relative bg-slate-900 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 opacity-90"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col items-center text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-sm font-medium mb-6">
+                <i data-lucide="check-circle" class="w-4 h-4"></i> Especialistas em DJI, Autel e FPV
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                Seu Drone Voando Alto <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Novamente</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-10">
+                Manutenção especializada, calibração de precisão e reparos com garantia. 
+                Recupere a performance original do seu equipamento com a AeroFix.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg shadow-blue-600/40 flex items-center justify-center gap-2">
+                    <i data-lucide="wrench" class="w-5 h-5"></i>
+                    Iniciar Atendimento
+                </button>
+                <button class="bg-transparent border border-slate-600 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition flex items-center justify-center gap-2">
+                    <i data-lucide="package" class="w-5 h-5"></i>
+                    Acompanhar Pedido
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- PROCEDIMENTO DE ENVIO (PROCESS) --- -->
+    <section id="processo" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-blue-600 font-bold tracking-wide uppercase text-sm">Passo a Passo</h2>
+                <h3 class="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900">Procedimento de Envio e Atendimento</h3>
+                <p class="mt-4 text-lg text-slate-600">Simplificamos o processo para você voar o mais rápido possível.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="relative p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">1. Pré-Diagnóstico</h4>
+                    <p class="text-slate-600 leading-relaxed">Entre em contato pelo WhatsApp. Descreva o problema e envie fotos/vídeos para uma avaliação inicial.</p>
+                    <div class="hidden md:block absolute top-10 -right-4 text-slate-300 z-10">
+                        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="truck" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">2. Envio Seguro</h4>
+                    <p class="text-slate-600 leading-relaxed">Embale bem seu drone (sem hélices e bateria, salvo solicitação). Gere a etiqueta e envie via Correios ou Transportadora.</p>
+                    <div class="hidden md:block absolute top-10 -right-4 text-slate-300 z-10">
+                        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="settings" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">3. Análise e Orçamento</h4>
+                    <p class="text-slate-600 leading-relaxed">Nossos técnicos farão o diagnóstico completo em até 48h após o recebimento e enviarão o orçamento formal.</p>
+                    <div class="hidden md:block absolute top-10 -right-4 text-slate-300 z-10">
+                        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="check-circle" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">4. Reparo e Retorno</h4>
+                    <p class="text-slate-600 leading-relaxed">Após aprovação, realizamos o reparo, testes de voo e enviamos o equipamento de volta com garantia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- GARANTIA E SEGURANÇA --- -->
+    <section id="garantia" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center mb-6">
+                <i data-lucide="shield-check" class="w-16 h-16 text-blue-500"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Garantia e Segurança</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12">
+                Seu equipamento é um investimento alto. Nós tratamos ele com a seriedade que merece.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">Garantia de 90 Dias</h3>
+                    <p class="text-slate-300 text-sm">
+                        Todos os serviços de mão de obra e peças substituídas possuem 3 meses de garantia legal contra defeitos.
+                    </p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">Seguro de Bancada</h3>
+                    <p class="text-slate-300 text-sm">
+                        A partir do momento que seu drone entra em nosso laboratório, ele está coberto por nosso seguro interno.
+                    </p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">Testes de Voo Reais</h3>
+                    <p class="text-slate-300 text-sm">
+                        Não confiamos apenas em simuladores. Realizamos voos de teste controlados para garantir estabilidade e sinal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- TERMOS TÉCNICOS (GLOSSARY) --- -->
+    <section id="glossario" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Explicações Simples sobre Termos Técnicos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Term 1 -->
+                <div class="bg-slate-50 p-5 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">Gimbal</h4>
+                    <p class="text-sm text-slate-600">É o estabilizador da câmera. É o sistema motorizado que mantém a imagem 'parada' e suave mesmo quando o drone balança ou vira bruscamente.</p>
+                </div>
+                <!-- Term 2 -->
+                <div class="bg-slate-50 p-5 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">IMU</h4>
+                    <p class="text-sm text-slate-600">Unidade de Medição Inercial. É o 'ouvido interno' do drone. Ela diz ao processador se o drone está nivelado, inclinado ou girando.</p>
+                </div>
+                <!-- Term 3 -->
+                <div class="bg-slate-50 p-5 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">ESC</h4>
+                    <p class="text-sm text-slate-600">Controlador Eletrônico de Velocidade. É a peça que recebe os comandos da placa mãe e diz aos motores o quão rápido eles devem girar.</p>
+                </div>
+                <!-- Term 4 -->
+                <div class="bg-slate-50 p-5 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">Calibração de Bússola</h4>
+                    <p class="text-sm text-slate-600">Processo para alinhar o GPS do drone com o Norte magnético da Terra. Essencial para evitar o erro de 'Flyaway' (voar sem controle).</p>
+                </div>
+                <!-- Term 5 -->
+                <div class="bg-slate-50 p-5 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">Firmware</h4>
+                    <p class="text-sm text-slate-600">É o sistema operacional interno do drone. Mantê-lo atualizado corrige bugs e melhora a estabilidade do voo.</p>
+                </div>
+                <!-- Term 6 -->
+                <div class="bg-slate-50 p-5 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">Vision Sensors</h4>
+                    <p class="text-sm text-slate-600">Câmeras pequenas ao redor do drone usadas para detectar obstáculos e manter a posição quando não há sinal de GPS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FAQ SECTION --- -->
+    <section id="faq" class="py-20 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="flex justify-center mb-4">
+                    <i data-lucide="help-circle" class="w-12 h-12 text-blue-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Dúvidas Mais Comuns</h2>
+                <p class="text-slate-600 mt-2">Respostas diretas para o que você precisa saber.</p>
+            </div>
+            
+            <div class="space-y-4" id="accordion-container">
+                <!-- FAQ Item 1 -->
+                <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-slate-50 transition">
+                        <span class="font-semibold text-slate-800">Quanto custa para arrumar meu drone?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden opacity-0">
+                        <p class="px-6 py-4 text-slate-600 leading-relaxed text-sm">
+                            Cada caso é único. O custo depende das peças danificadas e complexidade da mão de obra. Não cobramos pelo orçamento. Após o diagnóstico, você recebe o valor exato e decide se aprova.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-slate-50 transition">
+                        <span class="font-semibold text-slate-800">Quanto tempo demora o reparo?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden opacity-0">
+                        <p class="px-6 py-4 text-slate-600 leading-relaxed text-sm">
+                            Para problemas comuns (troca de braço, flat cable do gimbal), o prazo médio é de 3 a 5 dias úteis após aprovação. Casos complexos (placa lógica ou danos por água) podem levar de 7 a 15 dias.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-slate-50 transition">
+                        <span class="font-semibold text-slate-800">Derrubei o drone na água. Tem conserto?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden opacity-0">
+                        <p class="px-6 py-4 text-slate-600 leading-relaxed text-sm">
+                            É crucial NÃO ligar o drone e remover a bateria imediatamente. Envie para nós o quanto antes. Realizamos um banho químico para tentar remover a oxidação. A taxa de sucesso varia dependendo do tempo de exposição.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-slate-50 transition">
+                        <span class="font-semibold text-slate-800">Vocês aceitam drones de outras cidades?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden opacity-0">
+                        <p class="px-6 py-4 text-slate-600 leading-relaxed text-sm">
+                            Sim! Recebemos equipamentos de todo o Brasil via Correios ou transportadora. Todo o trâmite é documentado via WhatsApp e E-mail.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-slate-50 transition">
+                        <span class="font-semibold text-slate-800">Preciso enviar o controle remoto junto?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden opacity-0">
+                        <p class="px-6 py-4 text-slate-600 leading-relaxed text-sm">
+                            Geralmente sim. Isso nos permite testar o pareamento e garantir que não há problemas de sinal entre o rádio e a aeronave antes de devolver o kit completo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA / FOOTER --- -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center gap-2 mb-4">
+                        <!-- Footer Logo -->
+                        <!-- Substitua o 'src' abaixo pelo caminho da sua imagem -->
+                        <img 
+                            src="https://i.imgur.com/8jy3eFS.png" 
+                            alt="AeroFix Solutions" 
+                            class="h-12 w-auto object-contain"
+                        >
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Soluções profissionais em manutenção de aeronaves não tripuladas. Qualidade técnica e paixão por voar.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Serviços</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400">Troca de peças e componentes</a></li>
+                        <li><a href="#" class="hover:text-blue-400">Calibração Completa</a></li>
+                        <li><a href="#" class="hover:text-blue-400">Limpeza e manutenção preventiva</a></li>
+                        <li><a href="#" class="hover:text-blue-400">Atualização de Firmware</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>WhatsApp: (24) 99986-8709</li>
+                        <li>Email: aerofixsolutionsangra@gmail.com</li>
+                        <li>Seg - Sex: 09:00 - 18:00</li>
+                        <li>Sábado: 09:00 - 13:00</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Localização</h4>
+                    <p class="text-sm">
+                        Rua Prefeito João Gregório Galindo<br />
+                        Angra dos Reis<br />
+                        Rio de Janeiro - RJ
+                    </p>
+                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded text-sm font-semibold transition">
+                        Ver no Mapa
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-sm text-slate-500">
+                &copy; 2024 AeroFix Solutions. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT INTERATIVO -->
+    <script>
+        // 1. Inicializar ícones Lucide
+        lucide.createIcons();
+
+        // 2. Lógica do Menu Mobile
+        const btnMobile = document.getElementById('mobile-menu-btn');
+        const menuMobile = document.getElementById('mobile-menu');
+        const iconMobile = btnMobile.querySelector('i');
+
+        btnMobile.addEventListener('click', () => {
+            // Alterna visibilidade
+            menuMobile.classList.toggle('hidden');
+            
+            // Troca ícone (menu <-> x)
+            const isHidden = menuMobile.classList.contains('hidden');
+            if (!isHidden) {
+                iconMobile.setAttribute('data-lucide', 'x');
+            } else {
+                iconMobile.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons(); // Recarrega para o novo ícone aparecer
+        });
+
+        // 3. Lógica do FAQ (Acordeão)
+        const accordions = document.querySelectorAll('.accordion-btn');
+
+        accordions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.accordion-icon');
+
+                // Toggle classes
+                if (content.classList.contains('max-h-0')) {
+                    // Abre
+                    content.classList.remove('max-h-0', 'opacity-0');
+                    content.classList.add('max-h-48', 'opacity-100');
+                    icon.classList.add('rotate-180'); // Gira a seta
+                    icon.classList.remove('text-slate-400');
+                    icon.classList.add('text-blue-600');
+                } else {
+                    // Fecha
+                    content.classList.add('max-h-0', 'opacity-0');
+                    content.classList.remove('max-h-48', 'opacity-100');
+                    icon.classList.remove('rotate-180');
+                    icon.classList.add('text-slate-400');
+                    icon.classList.remove('text-blue-600');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
